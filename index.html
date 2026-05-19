@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nishant Mishra | Senior Golang Developer</title>
+  <meta name="description" content="Public resume website for Nishant Mishra, Senior Golang Developer specializing in scalable backend systems, fintech, cloud, Kafka, Kubernetes, AWS, and distributed systems." />
+  <meta property="og:title" content="Nishant Mishra | Senior Golang Developer" />
+  <meta property="og:description" content="Backend engineer building scalable fintech, cloud, and distributed systems with Golang." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2f;
+      --card: rgba(255, 255, 255, 0.075);
+      --card-strong: rgba(255, 255, 255, 0.11);
+      --text: #eef5ff;
+      --muted: #a9b8cd;
+      --line: rgba(255, 255, 255, 0.14);
+      --accent: #3ee7b6;
+      --accent-2: #6da8ff;
+      --warning: #ffd166;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(62, 231, 182, 0.18), transparent 32%),
+        radial-gradient(circle at 80% 10%, rgba(109, 168, 255, 0.20), transparent 30%),
+        linear-gradient(135deg, #050914 0%, #07111f 46%, #0b1426 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, 0.76);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      color: #06111f;
+      font-weight: 950;
+      box-shadow: 0 12px 35px rgba(62, 231, 182, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 84px 0 54px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.055));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(62, 231, 182, 0.16);
+      filter: blur(30px);
+      right: -80px;
+      bottom: -80px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(62, 231, 182, 0.28);
+      border-radius: 999px;
+      background: rgba(62, 231, 182, 0.08);
+      color: #b8ffe9;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 0.95;
+      letter-spacing: -0.075em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff, #9ed1ff 45%, #3ee7b6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 19px;
+      max-width: 720px;
+      margin: 26px 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      transition: transform 0.2s ease, background 0.2s ease, border 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn.primary {
+      color: #06111f;
+      background: linear-gradient(135deg, var(--accent), #b9ffe9);
+      border: 0;
+    }
+
+    .btn.secondary { background: rgba(255,255,255,0.07); }
+
+    .profile-panel {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .avatar {
+      width: 104px;
+      height: 104px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, #173457, #10233b 45%, #1ac79b);
+      display: grid;
+      place-items: center;
+      font-size: 38px;
+      font-weight: 950;
+      letter-spacing: -0.08em;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-list a:hover { color: var(--accent); }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--line);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 28px;
+      letter-spacing: -0.05em;
+    }
+
+    .metric span { color: var(--muted); font-size: 13px; }
+
+    section { padding: 44px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: -0.055em;
+      line-height: 1.05;
+    }
+
+    .muted { color: var(--muted); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: 22px;
+      background: var(--card);
+      border: 1px solid var(--line);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+      letter-spacing: -0.025em;
+    }
+
+    .card p { margin: 0; color: var(--muted); }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .role {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 26px;
+      padding: 26px;
+      border-radius: 24px;
+      background: var(--card);
+      border: 1px solid var(--line);
+    }
+
+    .role-meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .role h3 {
+      margin: 0 0 4px;
+      font-size: 23px;
+      letter-spacing: -0.035em;
+    }
+
+    .role-company {
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li { margin-bottom: 8px; }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.075);
+      border: 1px solid var(--line);
+      color: #dce9fb;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .project-card {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tagline {
+      color: var(--warning);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      padding: 44px 0 64px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .print-note {
+      display: none;
+    }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hero-grid, .role, .cards, .projects { grid-template-columns: 1fr; }
+      .hero-card { padding: 28px; }
+      .metric-grid { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+
+    @media print {
+      body { background: white; color: #111827; }
+      .nav, .hero-actions, .footer { display: none; }
+      .hero, section { padding: 18px 0; }
+      .hero-card, .panel, .card, .role {
+        box-shadow: none;
+        background: white;
+        border: 1px solid #d1d5db;
+      }
+      .muted, .card p, ul, .role-meta, .contact-list { color: #374151; }
+      .gradient-text { color: #111827; background: none; }
+      .print-note { display: block; color: #374151; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Nishant Mishra homepage">
+        <span class="brand-mark">NM</span>
+        <span>Nishant Mishra</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">Senior Golang Developer · Fintech Backend · Cloud Systems</div>
+          <h1>Building reliable backend systems for <span class="gradient-text">payments, banking & scale.</span></h1>
+          <p class="hero-subtitle">
+            I am a Golang backend engineer with experience across CBDC wallet systems, KYC notification platforms,
+            trading APIs, cloud infrastructure, Kafka-based messaging, Kubernetes deployments, and production-grade observability.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="mailto:mishranishant04@gmail.com">Contact Me</a>
+            <a class="btn secondary" href="https://github.com/mnishant04/" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn secondary" href="https://linkedin.com/in/mnishant04/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+          <div class="metric-grid" aria-label="Career highlights">
+            <div class="metric"><strong>4+</strong><span>Years backend experience</span></div>
+            <div class="metric"><strong>80%+</strong><span>Test coverage delivered</span></div>
+            <div class="metric"><strong>24x7</strong><span>Production ownership mindset</span></div>
+          </div>
+        </div>
+
+        <aside class="panel profile-panel" id="contact">
+          <div>
+            <div class="avatar">NM</div>
+            <h2 style="font-size: 30px; margin-top: 22px;">Nishant Mishra</h2>
+            <p class="muted">Senior Golang Developer based in Mumbai, India.</p>
+          </div>
+          <div class="contact-list">
+            <a href="mailto:mishranishant04@gmail.com">mishranishant04@gmail.com</a>
+            <a href="tel:+918369082865">+91 8369082865</a>
+            <a href="https://linkedin.com/in/mnishant04/" target="_blank" rel="noreferrer">linkedin.com/in/mnishant04</a>
+            <a href="https://github.com/mnishant04/" target="_blank" rel="noreferrer">github.com/mnishant04</a>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Profile</div>
+            <h2>Backend engineer focused on correctness, reliability and scale.</h2>
+          </div>
+          <p class="muted" style="max-width: 420px;">
+            Strong experience in Golang, AWS, GCP, Kafka, Kubernetes, REST APIs, databases, CI/CD, profiling, and cloud-native backend design.
+          </p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Fintech & Banking Systems</h3>
+            <p>Worked on CBDC wallet services, transaction synchronization, wallet-to-wallet transfers, device registration, and KYC notification systems.</p>
+          </article>
+          <article class="card">
+            <h3>Cloud-Native Backend</h3>
+            <p>Built Lambda-driven notification flows, DynamoDB-backed batch processing, Kubernetes deployments, Kafka messaging, and cloud monitoring.</p>
+          </article>
+          <article class="card">
+            <h3>Production Engineering</h3>
+            <p>Handled production bugs, profiling with pprof, code reviews, test coverage, CI/CD rollouts, and operational monitoring using CloudWatch.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Experience</div>
+            <h2>Professional journey</h2>
+          </div>
+        </div>
+        <div class="timeline">
+          <article class="role">
+            <div class="role-meta">March 2025 — Present<br/>Mumbai, India</div>
+            <div>
+              <h3>Senior Golang Developer</h3>
+              <div class="role-company">HCLTech · Client: ANZ Bank — Strategic KYC Program</div>
+              <ul>
+                <li>Led design and development of scalable AWS Lambda-based notification systems for SMS, email, and letters.</li>
+                <li>Built a priority-based batching engine to process high-urgency notifications with near-real-time efficiency.</li>
+                <li>Engineered hourly batch processing using CloudWatch Events, DynamoDB, and Lambda orchestration.</li>
+                <li>Owned backend microservices, reusable Golang modules, CI/CD readiness, documentation, and production observability.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role-meta">January 2024 — February 2025</div>
+            <div>
+              <h3>Senior Golang Developer</h3>
+              <div class="role-company">National Payments Corporation of India</div>
+              <ul>
+                <li>Worked on backend systems for CBDC, including wallet creation, transaction sync, device registration, and fund loading.</li>
+                <li>Implemented wallet-to-wallet transfer logic, failed transaction cron jobs, and APIs for transaction retrieval.</li>
+                <li>Used Kafka for real-time messaging and Kubernetes for deployment across GCP and bare-metal environments.</li>
+                <li>Applied pprof profiling to improve latency and performance in distributed backend services.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role-meta">August 2022 — December 2023</div>
+            <div>
+              <h3>Golang Developer</h3>
+              <div class="role-company">Market Simplified</div>
+              <ul>
+                <li>Built and optimized APIs for trading mobile applications, including CSV exports and SMTP-based email delivery.</li>
+                <li>Improved REST APIs with additional functionality, error handling, and goroutine-based response-time optimization.</li>
+                <li>Managed AWS OpenSearch ISM policies for trading indices and automated notification services with AWS Glue.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role-meta">April 2021 — July 2022</div>
+            <div>
+              <h3>Golang Developer</h3>
+              <div class="role-company">Endpointech</div>
+              <ul>
+                <li>Developed RESTful APIs using Go frameworks including Gorilla Mux, Gin, and Echo.</li>
+                <li>Worked with MySQL, DynamoDB, Kafka, AWS Cognito, IAM, S3, Jenkins, Swagger, and Postman.</li>
+                <li>Converted existing Python APIs to Golang and built middleware services for third-party API integrations.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Skills</div>
+            <h2>Tech stack</h2>
+          </div>
+        </div>
+        <div class="skills">
+          <span class="chip">Golang</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip">Kafka</span>
+          <span class="chip">Kubernetes</span>
+          <span class="chip">Docker</span>
+          <span class="chip">AWS Lambda</span>
+          <span class="chip">DynamoDB</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">MariaDB</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">GCP</span>
+          <span class="chip">CloudWatch</span>
+          <span class="chip">OpenSearch</span>
+          <span class="chip">Jenkins</span>
+          <span class="chip">CI/CD</span>
+          <span class="chip">Git</span>
+          <span class="chip">Linux/Unix</span>
+          <span class="chip">pprof</span>
+          <span class="chip">Swagger</span>
+          <span class="chip">Postman</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Projects</div>
+            <h2>Selected work</h2>
+          </div>
+        </div>
+        <div class="projects">
+          <article class="card project-card">
+            <div>
+              <div class="tagline">Go · SQLite · CRUD</div>
+              <h3>Simple CRM</h3>
+              <p>Open-source CRM for small businesses to manage customer data, invoice details, and service information with a lightweight setup.</p>
+            </div>
+            <a class="btn secondary" href="https://github.com/mnishant04/" target="_blank" rel="noreferrer">View GitHub</a>
+          </article>
+          <article class="card project-card">
+            <div>
+              <div class="tagline">Go · Slack API · Bot</div>
+              <h3>File Upload Slack Bot</h3>
+              <p>Slack bot using Go packages for REST API, WebSockets, RTM, Events API, and environment-based configuration.</p>
+            </div>
+            <a class="btn secondary" href="https://github.com/mnishant04/" target="_blank" rel="noreferrer">View GitHub</a>
+          </article>
+          <article class="card project-card">
+            <div>
+              <div class="tagline">Python · ML · Computer Vision</div>
+              <h3>Music Recommendation System</h3>
+              <p>Emotion-based music player that detects facial emotion using computer vision and recommends music based on expression.</p>
+            </div>
+            <a class="btn secondary" href="https://github.com/mnishant04/" target="_blank" rel="noreferrer">View GitHub</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Education</div>
+            <h2>Education & certifications</h2>
+          </div>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>BE Information Technology</h3>
+            <p>Mumbai University · CGPA 8.2 · May 2023</p>
+          </article>
+          <article class="card">
+            <h3>Diploma in Computer Science</h3>
+            <p>Viva College of Engineering and Technology · 76% · May 2019</p>
+          </article>
+          <article class="card">
+            <h3>Achievements</h3>
+            <p>HackerRank Problem Solving Basic and SQL Basic certificates.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built as a public resume website. Last updated 2026.</p>
+      <p class="print-note">For privacy, consider removing phone number before publishing publicly.</p>
+    </div>
+  </footer>
+</body>
+</html>
